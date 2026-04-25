@@ -1,11 +1,13 @@
 @import "tailwindcss";
 
-body {
-  background: white;
-  color: black;
-  -webkit-font-smoothing: antialiased;
+@layer base {
+  body {
+    @apply selection:bg-[#8B0000] selection:text-white;
+  }
 }
 
-html {
-  scroll-behavior: smooth;
+.glass-header {
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
 }
