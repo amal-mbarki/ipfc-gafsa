@@ -1,18 +1,22 @@
 import type { Metadata } from "next";
+import { Inter } from "next/font/google"; // زدت سطر الخط هنا
 import "./globals.css";
 
+const inter = Inter({ subsets: ["latin"] }); // تعريف الخط
+
 export const metadata: Metadata = {
+  metadataBase: new URL('https://ipfc.tn'), 
   title: "IPFC GAFSA | Elite International Training Center",
   description: "Master German, English, and French in Gafsa. Your gateway to Ausbildung and international careers. Accredited certifications (ÖSD, IELTS, TOEIC).",
   
   openGraph: {
     title: "IPFC GAFSA | Language Mastery A1 to B2",
     description: "Inscrivez-vous pour les niveaux A1, A2, B1 et B2 à Gafsa. Excellence et Prestige.",
-    url: "https://ipfc.tn", // الرابط الرسمي اللي حكينا عليه
+    url: "https://ipfc.tn",
     siteName: "IPFC GAFSA",
     images: [
       {
-        url: "/logo.png", // استعملنا اسم اللوغو الموجود فعلياً عندك
+        url: "/logo.png",
         width: 800,
         height: 800,
         alt: "IPFC Gafsa Logo",
@@ -23,7 +27,7 @@ export const metadata: Metadata = {
   },
   
   icons: {
-    icon: "/logo.png", // الأيقونة اللي تظهر في التبويب فوق
+    icon: "/logo.png",
   },
 };
 
@@ -34,7 +38,8 @@ export default function RootLayout({
 }) {
   return (
     <html lang="fr" dir="ltr" className="scroll-smooth">
-      <body className="antialiased bg-white text-slate-900 font-sans selection:bg-[#8B0000] selection:text-white">
+      {/* دمجت خط Inter مع التنسيقات اللي عملتيهم */}
+      <body className={`${inter.className} antialiased bg-white text-slate-900 selection:bg-[#8B0000] selection:text-white`}>
         {children}
       </body>
     </html>

@@ -2,80 +2,84 @@ import React from 'react';
 
 export default function Footer() {
   return (
-    <footer className="bg-[#8B0000] py-20 px-10 text-white border-t border-red-900">
-      <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-20">
+    <footer className="bg-[#8B0000] py-24 px-6 text-white border-t border-red-900 relative overflow-hidden">
+      {/* لمسة فنية خلفية (خفيفة جداً) */}
+      <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_top_right,#ffffff05_0%,transparent_50%)]"></div>
+
+      <div className="max-w-7xl mx-auto relative z-10">
         
-        {/* Brand & Mission */}
-        <div>
-          <h3 className="text-3xl font-black mb-6 tracking-tighter uppercase italic">
-            IPFC GAFSA
-          </h3>
-          <p className="text-red-100 text-sm leading-relaxed font-medium">
-            Gafsa elite training center specializing in international language mastery. 
-            Providing comprehensive courses from A1 to B2 to guarantee your professional global success.
-          </p>
-          
-          <div className="mt-8 flex flex-wrap gap-3">
-            <a 
-              href="https://wa.me/21626260095" 
-              target="_blank" 
-              rel="noopener noreferrer"
-              className="bg-green-600 hover:bg-green-700 text-white text-[10px] font-black uppercase px-4 py-2 rounded-full transition-all tracking-widest shadow-lg"
-            >
-              WhatsApp Support
-            </a>
-            {/* الرابط المصلح هنا */}
-            <a 
-              href="https://www.google.com/maps/search/?api=1&query=IPFC+Gafsa+Imm+Trocadero" 
-              target="_blank" 
-              rel="noopener noreferrer"
-              className="bg-white text-red-900 text-[10px] font-black uppercase px-5 py-3 rounded-full transition-all duration-300 tracking-widest hover:bg-red-50 shadow-xl hover:-translate-y-1"
-            >
-              Google Maps
-            </a>
-          </div>
-        </div>
-        
-        {/* Navigation */}
-        <div>
-          <h4 className="text-[10px] font-black uppercase tracking-[0.4em] mb-8 text-red-300">
-            Navigation
-          </h4>
-          <ul className="space-y-4 text-sm font-bold uppercase tracking-widest">
-            <li><a href="#" className="hover:text-red-200 transition-colors">About Center</a></li>
-            <li><a href="#courses" className="hover:text-red-200 transition-colors">A1 - B2 Courses</a></li>
-            <li><a href="#register" className="hover:text-red-200 transition-colors">Enrollment</a></li>
-          </ul>
+        {/* 1. قسم التواصل التفاعلي - بألوان متناسقة مع الخلفية الحمراء */}
+        <div className="flex flex-col md:flex-row gap-8 items-center justify-center mb-24">
+          {/* زر الهاتف */}
+          <a 
+            href="tel:+21699885883" 
+            className="group flex items-center gap-5 bg-white/5 backdrop-blur-sm border border-white/10 p-6 rounded-[35px] hover:bg-white/10 hover:border-white/30 transition-all duration-500 w-full md:w-auto"
+          >
+            <div className="w-14 h-14 bg-white text-[#8B0000] rounded-2xl flex items-center justify-center text-2xl group-hover:scale-110 transition-all duration-500 shadow-xl">
+              📞
+            </div>
+            <div className="flex flex-col pr-10 text-left">
+              <span className="text-[10px] font-black uppercase tracking-widest text-red-300">Official Line</span>
+              <span className="text-2xl font-black italic tracking-tighter">99 885 883</span>
+            </div>
+          </a>
+
+          {/* زر الواتساب */}
+          <a 
+            href="https://wa.me/21626260095" 
+            target="_blank"
+            className="group flex items-center gap-5 bg-white/5 backdrop-blur-sm border border-white/10 p-6 rounded-[35px] hover:bg-white/10 hover:border-white/30 transition-all duration-500 w-full md:w-auto"
+          >
+            <div className="w-14 h-14 bg-[#25D366] text-white rounded-2xl flex items-center justify-center text-2xl group-hover:scale-110 transition-all duration-500 shadow-xl">
+              💬
+            </div>
+            <div className="flex flex-col pr-10 text-left">
+              <span className="text-[10px] font-black uppercase tracking-widest text-red-300">WhatsApp</span>
+              <span className="text-2xl font-black italic tracking-tighter">Get Support</span>
+            </div>
+          </a>
         </div>
 
-        {/* Headquarters & Contact */}
-        <div>
-          <h4 className="text-[10px] font-black uppercase tracking-[0.4em] mb-8 text-red-300">
-            Headquarters
-          </h4>
-          <p className="font-bold mb-4 italic tracking-tight flex items-center gap-2 text-sm">
-            📍 Imm Trocadero (Face Hôpital), Gafsa
-          </p>
-          <div className="bg-white/10 p-6 rounded-2xl border border-white/10 inline-block w-full">
-            <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-red-200 mb-3">Direct Contact</p>
-            <div className="space-y-3">
-              <div>
-                <p className="text-[9px] uppercase font-black text-red-300">Administration</p>
-                <p className="font-black text-xl text-white">+216 99 885 883</p>
-              </div>
-              <div className="pt-2 border-t border-white/5">
-                <p className="text-[9px] uppercase font-black text-red-300">WhatsApp & Global</p>
-                <p className="font-black text-xl text-white">+216 26 260 095</p>
-              </div>
-            </div>
+        {/* 2. الروابط والمعلومات */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-16 mb-20 text-center md:text-left border-y border-white/10 py-16">
+          <div className="space-y-6">
+            <h3 className="text-3xl font-black italic tracking-tighter uppercase">IPFC GAFSA</h3>
+            <p className="text-red-100/70 text-sm leading-relaxed font-medium max-w-xs mx-auto md:mx-0">
+              Leading the way in global language mastery. 
+              Excellence in training, prestige in certification.
+            </p>
+          </div>
+          
+          <div className="space-y-6">
+            <h4 className="text-[10px] font-black uppercase tracking-[0.4em] text-red-300">Headquarters</h4>
+            <p className="font-black italic text-lg leading-snug">
+              📍 Imm Trocadero, Gafsa <br/>
+              <span className="text-sm text-red-200/60 not-italic font-medium">Facing the Hospital</span>
+            </p>
+            <a 
+              href="http://maps.google.com/?q=IPFC+Gafsa" 
+              target="_blank"
+              className="inline-block text-[10px] font-black text-white hover:text-red-200 transition-colors underline decoration-red-400 underline-offset-8"
+            >
+              FIND US ON MAPS
+            </a>
+          </div>
+
+          <div className="space-y-6">
+            <h4 className="text-[10px] font-black uppercase tracking-[0.4em] text-red-300">Explore</h4>
+            <ul className="text-sm font-bold space-y-4 italic uppercase tracking-tighter">
+              <li><a href="#courses" className="hover:text-red-200 transition-colors">Language Tracks</a></li>
+              <li><a href="#register" className="hover:text-red-200 transition-colors">Enroll Now</a></li>
+            </ul>
           </div>
         </div>
-      </div>
-      
-      <div className="mt-20 pt-8 border-t border-white/10 text-center">
-        <p className="text-[9px] text-red-300 font-black uppercase tracking-[0.5em]">
-          © 2026 IPFC GAFSA | Elite Education Excellence
-        </p>
+
+        {/* 3. الحقوق */}
+        <div className="text-center pt-4">
+           <p className="text-red-300/40 text-[9px] font-black uppercase tracking-[0.6em]">
+             © 2026 IPFC GAFSA | PRESTIGE EDUCATION EXCELLENCE
+           </p>
+        </div>
       </div>
     </footer>
   );
