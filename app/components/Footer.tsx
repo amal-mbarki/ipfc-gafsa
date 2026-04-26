@@ -15,9 +15,7 @@ export default function Footer() {
             Providing comprehensive courses from A1 to B2 to guarantee your professional global success.
           </p>
           
-          {/* Quick Support Buttons */}
           <div className="mt-8 flex flex-wrap gap-3">
-            {/* زر الواتساب للرقم 26 */}
             <a 
               href="https://wa.me/21626260095" 
               target="_blank" 
@@ -26,11 +24,12 @@ export default function Footer() {
             >
               WhatsApp Support
             </a>
+            {/* الرابط المصلح هنا */}
             <a 
-              href="https://goo.gl/maps/YOUR_LINK" // حطي رابط الماب هنا
+              href="https://www.google.com/maps/search/?api=1&query=IPFC+Gafsa+Imm+Trocadero" 
               target="_blank" 
               rel="noopener noreferrer"
-              className="bg-white text-red-900 text-[10px] font-black uppercase px-4 py-2 rounded-full transition-all tracking-widest hover:bg-red-100 shadow-lg"
+              className="bg-white text-red-900 text-[10px] font-black uppercase px-5 py-3 rounded-full transition-all duration-300 tracking-widest hover:bg-red-50 shadow-xl hover:-translate-y-1"
             >
               Google Maps
             </a>
@@ -49,7 +48,7 @@ export default function Footer() {
           </ul>
         </div>
 
-        {/* Headquarters & Contact - الزوز أرقام هنا */}
+        {/* Headquarters & Contact */}
         <div>
           <h4 className="text-[10px] font-black uppercase tracking-[0.4em] mb-8 text-red-300">
             Headquarters
@@ -73,7 +72,6 @@ export default function Footer() {
         </div>
       </div>
       
-      {/* Bottom Bar */}
       <div className="mt-20 pt-8 border-t border-white/10 text-center">
         <p className="text-[9px] text-red-300 font-black uppercase tracking-[0.5em]">
           © 2026 IPFC GAFSA | Elite Education Excellence
