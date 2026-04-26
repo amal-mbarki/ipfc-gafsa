@@ -1,4 +1,4 @@
-import React from 'react'; // Added correctly to solve the missing import issue
+import React from 'react';
 
 export default function Footer() {
   return (
@@ -14,6 +14,27 @@ export default function Footer() {
             Gafsa elite training center specializing in international language mastery. 
             Providing comprehensive courses from A1 to B2 to guarantee your professional global success.
           </p>
+          
+          {/* Quick Support Buttons */}
+          <div className="mt-8 flex flex-wrap gap-3">
+            {/* زر الواتساب للرقم 26 */}
+            <a 
+              href="https://wa.me/21626260095" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="bg-green-600 hover:bg-green-700 text-white text-[10px] font-black uppercase px-4 py-2 rounded-full transition-all tracking-widest shadow-lg"
+            >
+              WhatsApp Support
+            </a>
+            <a 
+              href="https://goo.gl/maps/YOUR_LINK" // حطي رابط الماب هنا
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="bg-white text-red-900 text-[10px] font-black uppercase px-4 py-2 rounded-full transition-all tracking-widest hover:bg-red-100 shadow-lg"
+            >
+              Google Maps
+            </a>
+          </div>
         </div>
         
         {/* Navigation */}
@@ -22,29 +43,32 @@ export default function Footer() {
             Navigation
           </h4>
           <ul className="space-y-4 text-sm font-bold uppercase tracking-widest">
-            <li>
-              <a href="#" className="hover:text-black transition-colors">About Center</a>
-            </li>
-            <li>
-              <a href="#courses" className="hover:text-black transition-colors">A1 - B2 Courses</a>
-            </li>
-            <li>
-              <a href="#register" className="hover:text-black transition-colors">Enrollment</a>
-            </li>
+            <li><a href="#" className="hover:text-red-200 transition-colors">About Center</a></li>
+            <li><a href="#courses" className="hover:text-red-200 transition-colors">A1 - B2 Courses</a></li>
+            <li><a href="#register" className="hover:text-red-200 transition-colors">Enrollment</a></li>
           </ul>
         </div>
 
-        {/* Headquarters & Contact */}
+        {/* Headquarters & Contact - الزوز أرقام هنا */}
         <div>
           <h4 className="text-[10px] font-black uppercase tracking-[0.4em] mb-8 text-red-300">
             Headquarters
           </h4>
-          <p className="font-bold mb-4 italic tracking-tight flex items-center gap-2">
+          <p className="font-bold mb-4 italic tracking-tight flex items-center gap-2 text-sm">
             📍 Imm Trocadero (Face Hôpital), Gafsa
           </p>
-          <div className="bg-white/10 p-4 rounded-2xl border border-white/10 inline-block">
-            <p className="text-xs font-bold uppercase tracking-widest text-red-200 mb-1">Direct Support</p>
-            <p className="font-black text-2xl text-white">+216 99 885 883</p>
+          <div className="bg-white/10 p-6 rounded-2xl border border-white/10 inline-block w-full">
+            <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-red-200 mb-3">Direct Contact</p>
+            <div className="space-y-3">
+              <div>
+                <p className="text-[9px] uppercase font-black text-red-300">Administration</p>
+                <p className="font-black text-xl text-white">+216 99 885 883</p>
+              </div>
+              <div className="pt-2 border-t border-white/5">
+                <p className="text-[9px] uppercase font-black text-red-300">WhatsApp & Global</p>
+                <p className="font-black text-xl text-white">+216 26 260 095</p>
+              </div>
+            </div>
           </div>
         </div>
       </div>
