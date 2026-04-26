@@ -1,51 +1,54 @@
 @import "tailwindcss";
 
 @theme {
-  /* تعريف اللون الأحمر الملكي ليكون متاحاً في كامل المشروع بكلمة واحدة */
-  --color-royal-red: #8B0000;
-  --color-prestige-gold: #D4AF37; /* لمسة اختيارية للذهبي مستقبلاً */
+  /* درجة أحمر ملكي عميق (Royal Red) */
+  --color-royal-red: #580303; 
+  --color-prestige-gold: #D4AF37;
 }
 
-/* تحسينات عامة للموقع */
+/* 1. التحسينات الأساسية للموقع */
 @layer base {
   html {
-    scroll-behavior: smooth;
+    scroll-behavior: smooth; /* لضمان نزول الموقع بنعومة عند الضغط على الروابط */
   }
 
   body {
-    @apply antialiased text-slate-900 bg-white;
-    /* تحسين طريقة ظهور الخطوط */
+    /* رمادي غامق لإراحة العين بدلاً من الأسود الصريح */
+    @apply antialiased text-slate-800 bg-white; 
     text-rendering: optimizeLegibility;
   }
 
-  /* تخصيص شكل الـ Scrollbar ليكون "Prestige" */
+  /* تخصيص شريط التمرير (Scrollbar) ليكون نحيفاً وأنيقاً */
   ::-webkit-scrollbar {
-    width: 8px;
+    width: 6px;
   }
 
   ::-webkit-scrollbar-track {
-    background: #f1f1f1;
+    background: #fdfdfd;
   }
 
   ::-webkit-scrollbar-thumb {
-    background: #8B0000;
+    background: #580303; /* استخدام اللون الملكي */
     border-radius: 10px;
-  }
-
-  ::-webkit-scrollbar-thumb:hover {
-    background: #5a0000;
   }
 }
 
-/* إضافة تأثير "Selection" ليكون أحمر ملكي عند تظليل أي نص */
+/* 2. لون التحديد (Selection) */
 ::selection {
-  background-color: #8B0000;
+  background-color: #580303;
   color: white;
 }
 
-/* تأثيرات الانتقال الناعمة لكل الأزرار */
-@layer components {
-  .btn-prestige {
-    @apply transition-all duration-300 active:scale-95;
+/* 3. ميكانيكا الحركة (للشريط المتحرك إن وجد) */
+@layer utilities {
+  @keyframes scroll {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+  }
+
+  .animate-infinite-scroll {
+    display: flex;
+    width: max-content;
+    animation: scroll 60s linear infinite;
   }
 }

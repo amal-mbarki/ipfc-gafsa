@@ -25,7 +25,7 @@ export default function RegisterForm() {
                   ✅
                 </div>
                 <p className="text-red-50 text-lg font-medium leading-tight pt-1">
-                  Official enrollment for levels <span className="font-black text-white">A1 to B2</span>.
+                  Official enrollment for levels <span className="font-black text-white">A1 to C2</span>.
                 </p>
               </div>
               
