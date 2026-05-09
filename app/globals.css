@@ -1,54 +1,53 @@
 @import "tailwindcss";
 
 @theme {
-  /* درجة أحمر ملكي عميق (Royal Red) */
-  --color-royal-red: #580303; 
+  /* الألوان الرسمية للمركز */
+  --color-royal-red: #580303;
   --color-prestige-gold: #D4AF37;
+  --color-cream-bg: #FCFAF7;
 }
 
-/* 1. التحسينات الأساسية للموقع */
-@layer base {
-  html {
-    scroll-behavior: smooth; /* لضمان نزول الموقع بنعومة عند الضغط على الروابط */
-  }
-
-  body {
-    /* رمادي غامق لإراحة العين بدلاً من الأسود الصريح */
-    @apply antialiased text-slate-800 bg-white; 
-    text-rendering: optimizeLegibility;
-  }
-
-  /* تخصيص شريط التمرير (Scrollbar) ليكون نحيفاً وأنيقاً */
-  ::-webkit-scrollbar {
-    width: 6px;
-  }
-
-  ::-webkit-scrollbar-track {
-    background: #fdfdfd;
-  }
-
-  ::-webkit-scrollbar-thumb {
-    background: #580303; /* استخدام اللون الملكي */
-    border-radius: 10px;
-  }
+:root {
+  --background: #FCFAF7; /* استعملنا لون الكريمي الفخم اللي خدمنا بيه الصفحات */
+  --foreground: #0f172a;
 }
 
-/* 2. لون التحديد (Selection) */
+body {
+  color: var(--foreground);
+  background: var(--background);
+  font-family: 'Inter', system-ui, sans-serif;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased; /* تحسين وضوح الخطوط على شاشات الـ iPhone */
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* تصليح غطس المحتوى وتناسقه مع الـ Mobile والـ PC */
+main {
+  /* استعملنا padding متجانس يخدم مع الـ Navbar الثابت */
+  padding-top: clamp(80px, 10vh, 120px); 
+}
+
+/* انسيابية الحركة */
+html {
+  scroll-behavior: smooth;
+}
+
+/* تحسين الـ Scrollbar ليكون متناسق مع الـ "Elite Look" */
+::-webkit-scrollbar { 
+  width: 6px; 
+}
+
+::-webkit-scrollbar-track { 
+  background: var(--color-cream-bg); 
+}
+
+::-webkit-scrollbar-thumb { 
+  background: #580303; 
+  border-radius: 50px;
+}
+
+/* تحسين اختيار النصوص (Selection) بلون المركز */
 ::selection {
-  background-color: #580303;
-  color: white;
-}
-
-/* 3. ميكانيكا الحركة (للشريط المتحرك إن وجد) */
-@layer utilities {
-  @keyframes scroll {
-    0% { transform: translateX(0); }
-    100% { transform: translateX(-50%); }
-  }
-
-  .animate-infinite-scroll {
-    display: flex;
-    width: max-content;
-    animation: scroll 60s linear infinite;
-  }
+  background-color: rgba(88, 3, 3, 0.1);
+  color: #580303;
 }

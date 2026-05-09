@@ -1,96 +1,69 @@
+"use client";
 import React from 'react';
+import { motion } from 'framer-motion';
+import { Award, ShieldCheck, Gem } from 'lucide-react';
 
-const eliteFeatures = [
+const features = [
   {
-    number: "01",
-    title: "Global",
-    subtitle: "Accreditation",
-    desc: "Certifications recognized by the state and worldwide (ÖSD, IELTS, TOEIC).",
+    title: "Official Accreditation",
+    desc: "A globally recognized partner for ÖSD and IELTS certifications, ensuring your future success.",
+    icon: <Award size={32} strokeWidth={1.5} />,
+    color: "#580303"
   },
   {
-    number: "02",
-    title: "Educational",
-    subtitle: "Excellence",
-    desc: "An expert teaching staff dedicated to your academic and professional success.",
+    title: "Modern Ecosystem",
+    desc: "High-tech classrooms and a professional environment designed for deep focus and excellence.",
+    icon: <Gem size={32} strokeWidth={1.5} />,
+    color: "#D4AF37"
   },
   {
-    number: "03",
-    title: "Career",
-    subtitle: "Guidance",
-    desc: "Full support for your Ausbildung projects and international career paths.",
+    title: "Elite Expertise",
+    desc: "A curriculum built by international experts to prepare local leaders for global opportunities.",
+    icon: <ShieldCheck size={32} strokeWidth={1.5} />,
+    color: "#580303"
   }
 ];
 
 export default function FeaturesPrestige() {
   return (
-    <section className="py-32 bg-white overflow-hidden relative">
-      <div className="max-w-7xl mx-auto px-6">
-        
-        {/* Header */}
-        <div className="flex flex-col md:flex-row justify-between items-end mb-24 gap-8">
-          <div className="max-w-2xl">
-            <span className="text-royal-red font-black tracking-[0.5em] text-[10px] uppercase mb-6 block">
-              The Gold Standard
-            </span>
-            <h2 className="text-6xl md:text-8xl font-black text-gray-950 tracking-tighter uppercase italic leading-[0.85]">
-              Elite <br />
-              <span className="text-royal-red">Experience</span>
-            </h2>
-          </div>
-          <p className="text-slate-400 font-bold text-sm max-w-[240px] leading-relaxed border-l-4 border-prestige-gold pl-6 hidden md:block">
-            IPFC GAFSA provides prestige training for future global leaders.
-          </p>
-        </div>
+    <section className="py-24 bg-[#080808] text-white overflow-hidden relative">
+      {/* تأثير ضوئي خفيف في الخلفية */}
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-full bg-[radial-gradient(circle_at_center,_#58030310_0%,_transparent_70%)] pointer-events-none"></div>
 
-        {/* Feature Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          {eliteFeatures.map((feature) => (
-            <div 
-              key={feature.number} 
-              className="group bg-white p-12 rounded-[40px] border border-slate-100 hover:border-prestige-gold/30 hover:shadow-[0_30px_60px_-15px_rgba(88,3,3,0.08)] transition-all duration-700 relative overflow-hidden"
+      <div className="max-w-7xl mx-auto px-6 relative z-10">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-12 lg:gap-20">
+          {features.map((feature, i) => (
+            <motion.div 
+              key={i}
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: i * 0.1 }}
+              viewport={{ once: true }}
+              className="flex flex-col items-center md:items-start text-center md:text-left group"
             >
-              <span className="absolute -top-4 -right-4 text-9xl font-black text-slate-950 opacity-[0.03] group-hover:text-prestige-gold group-hover:opacity-[0.07] transition-all duration-700">
-                {feature.number}
-              </span>
-
-              <div className="relative z-10">
-                <div className="mb-12">
-                  <h3 className="text-slate-950 text-3xl font-black uppercase italic tracking-tighter leading-none">
-                    {feature.title} <br />
-                    <span className="text-royal-red">{feature.subtitle}</span>
-                  </h3>
+              {/* Icon Container - فخم ومنظم */}
+              <div className="mb-8 relative">
+                <div 
+                  className="w-16 h-16 rounded-2xl flex items-center justify-center transition-all duration-500 group-hover:rotate-[10deg] shadow-2xl"
+                  style={{ backgroundColor: `${feature.color}20`, color: feature.color, border: `1px solid ${feature.color}40` }}
+                >
+                  {feature.icon}
                 </div>
-                
-                <p className="text-slate-600 font-medium leading-relaxed text-[15px] mb-10 group-hover:text-slate-900 transition-colors">
-                  {feature.desc}
-                </p>
-
-                {/* الخط السفلي يولي ذهبي في الـ Hover */}
-                <div className="w-12 h-1.5 bg-slate-100 group-hover:w-24 group-hover:bg-prestige-gold transition-all duration-700 rounded-full"></div>
+                {/* تأثير توهج خلف الأيقونة عند الـ Hover */}
+                <div className="absolute inset-0 bg-white/5 blur-2xl rounded-full opacity-0 group-hover:opacity-100 transition-opacity"></div>
               </div>
-            </div>
+
+              {/* Title with Custom Prestige Border */}
+              <h3 className="text-xl font-black uppercase tracking-tighter italic border-l-2 border-[#580303] pl-5 mb-5 transition-all group-hover:border-[#D4AF37]">
+                {feature.title}
+              </h3>
+
+              {/* Description - تحسين مقروئية النص */}
+              <p className="text-white/40 text-[10px] md:text-[11px] font-bold leading-relaxed uppercase tracking-[0.2em] max-w-[280px]">
+                {feature.desc}
+              </p>
+            </motion.div>
           ))}
-        </div>
-
-        {/* Bottom Banner - Deep Red & Gold Link */}
-        <div className="mt-24 flex flex-col md:flex-row items-center justify-between gap-10 bg-royal-red p-12 md:p-20 rounded-[60px] text-white relative overflow-hidden shadow-2xl">
-          <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-prestige-gold/5 rounded-full -mr-64 -mt-64 blur-3xl"></div>
-          
-          <div className="relative z-10 text-center md:text-left">
-            <h4 className="text-3xl md:text-5xl font-black uppercase italic tracking-tighter mb-4 leading-none">
-              Ready for the World?
-            </h4>
-            <p className="text-white/70 font-black uppercase tracking-[0.3em] text-[11px]">
-              IPFC Gafsa: Your Gateway to Excellence.
-            </p>
-          </div>
-
-          <a 
-            href="#register" 
-            className="relative z-10 bg-white text-royal-red px-16 py-6 rounded-2xl font-black uppercase tracking-widest text-sm hover:bg-prestige-gold hover:text-white transition-all duration-500 shadow-2xl"
-          >
-            Enroll Now
-          </a>
         </div>
       </div>
     </section>

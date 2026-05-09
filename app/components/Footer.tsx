@@ -1,82 +1,109 @@
+"use client";
 import React from 'react';
+import Link from 'next/link';
+import { Phone, MessageCircle, MapPin, ArrowUpRight } from 'lucide-react';
 
 export default function Footer() {
   return (
-    <footer className="bg-[#8B0000] py-24 px-6 text-white border-t border-red-900 relative overflow-hidden">
-      {/* لمسة فنية خلفية (خفيفة جداً) */}
-      <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_top_right,#ffffff05_0%,transparent_50%)]"></div>
+    <footer className="bg-[#580303] py-24 px-6 text-white border-t border-red-950 relative overflow-hidden">
+      
+      {/* تأثير فني خلفي خفيف */}
+      <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_top_right,#ffffff05_0%,transparent_50%)] pointer-events-none"></div>
 
       <div className="max-w-7xl mx-auto relative z-10">
         
-        {/* 1. قسم التواصل التفاعلي - بألوان متناسقة مع الخلفية الحمراء */}
+        {/* 1. أزرار التواصل السريع - مصلحة بأيقونات بروفيسيونال */}
         <div className="flex flex-col md:flex-row gap-8 items-center justify-center mb-24">
-          {/* زر الهاتف */}
+          
+          {/* الهاتف الرسمي */}
           <a 
             href="tel:+21699885883" 
-            className="group flex items-center gap-5 bg-white/5 backdrop-blur-sm border border-white/10 p-6 rounded-[35px] hover:bg-white/10 hover:border-white/30 transition-all duration-500 w-full md:w-auto"
+            className="group flex items-center gap-5 bg-white/5 backdrop-blur-md border border-white/10 p-6 rounded-[35px] hover:bg-white/10 hover:border-white/30 transition-all duration-500 w-full md:w-auto shadow-2xl"
           >
-            <div className="w-14 h-14 bg-white text-[#8B0000] rounded-2xl flex items-center justify-center text-2xl group-hover:scale-110 transition-all duration-500 shadow-xl">
-              📞
+            <div className="w-14 h-14 bg-white text-[#580303] rounded-2xl flex items-center justify-center group-hover:scale-110 transition-all duration-500">
+              <Phone size={24} strokeWidth={2.5} />
             </div>
             <div className="flex flex-col pr-10 text-left">
-              <span className="text-[10px] font-black uppercase tracking-widest text-red-300">Official Line</span>
-              <span className="text-2xl font-black italic tracking-tighter">99 885 883</span>
+              <span className="text-[10px] font-black uppercase tracking-widest text-red-300/60">Official Line</span>
+              <span className="text-2xl font-[1000] italic tracking-tighter uppercase">+216 99 885 883</span>
             </div>
           </a>
 
-          {/* زر الواتساب */}
+          {/* واتساب الدعم السريع */}
           <a 
-            href="https://wa.me/21626260095" 
+            href="https://wa.me/21699885883" 
             target="_blank"
-            className="group flex items-center gap-5 bg-white/5 backdrop-blur-sm border border-white/10 p-6 rounded-[35px] hover:bg-white/10 hover:border-white/30 transition-all duration-500 w-full md:w-auto"
+            rel="noopener noreferrer"
+            className="group flex items-center gap-5 bg-white/5 backdrop-blur-md border border-white/10 p-6 rounded-[35px] hover:bg-white/10 hover:border-white/30 transition-all duration-500 w-full md:w-auto shadow-2xl"
           >
-            <div className="w-14 h-14 bg-[#25D366] text-white rounded-2xl flex items-center justify-center text-2xl group-hover:scale-110 transition-all duration-500 shadow-xl">
-              💬
+            <div className="w-14 h-14 bg-[#25D366] text-white rounded-2xl flex items-center justify-center group-hover:scale-110 transition-all duration-500 shadow-lg shadow-green-500/20">
+              <MessageCircle size={24} strokeWidth={2.5} />
             </div>
             <div className="flex flex-col pr-10 text-left">
-              <span className="text-[10px] font-black uppercase tracking-widest text-red-300">WhatsApp</span>
-              <span className="text-2xl font-black italic tracking-tighter">Get Support</span>
+              <span className="text-[10px] font-black uppercase tracking-widest text-red-300/60">Fast Support</span>
+              <span className="text-2xl font-[1000] italic tracking-tighter uppercase">WhatsApp</span>
             </div>
           </a>
         </div>
 
-        {/* 2. الروابط والمعلومات */}
+        {/* 2. شبكة المعلومات والروابط */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-16 mb-20 text-center md:text-left border-y border-white/10 py-16">
+          
+          {/* هوية المركز */}
           <div className="space-y-6">
-            <h3 className="text-3xl font-black italic tracking-tighter uppercase">IPFC GAFSA</h3>
-            <p className="text-red-100/70 text-sm leading-relaxed font-medium max-w-xs mx-auto md:mx-0">
+            <h3 className="text-3xl font-[1000] italic tracking-tighter uppercase">IPFC GAFSA</h3>
+            <p className="text-red-100/60 text-sm leading-relaxed font-medium max-w-xs mx-auto md:mx-0 uppercase tracking-wide">
               Leading the way in global language mastery. 
               Excellence in training, prestige in certification.
             </p>
           </div>
           
+          {/* تفاصيل المقر الرئيسي */}
           <div className="space-y-6">
-            <h4 className="text-[10px] font-black uppercase tracking-[0.4em] text-red-300">Headquarters</h4>
-            <p className="font-black italic text-lg leading-snug">
-              📍 Imm Trocadero, Gafsa <br/>
-              <span className="text-sm text-red-200/60 not-italic font-medium">Facing the Hospital</span>
-            </p>
+            <h4 className="text-[10px] font-black uppercase tracking-[0.4em] text-red-300/50">Headquarters</h4>
+            <div className="font-black italic text-lg leading-snug space-y-1">
+              <p className="flex items-center justify-center md:justify-start gap-2">
+                <MapPin size={16} className="text-red-400" />
+                Imm Trocadero, Gafsa
+              </p>
+              <span className="text-xs text-red-200/40 not-italic font-bold uppercase tracking-widest">Facing the Hospital | 2nd Floor</span>
+            </div>
             <a 
-              href="http://maps.google.com/?q=IPFC+Gafsa" 
+              href="https://www.google.com/maps/search/?api=1&query=IPFC+Gafsa+Trocadero" 
               target="_blank"
-              className="inline-block text-[10px] font-black text-white hover:text-red-200 transition-colors underline decoration-red-400 underline-offset-8"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 text-[10px] font-black text-white hover:text-red-200 transition-colors underline decoration-red-900 underline-offset-8"
             >
-              FIND US ON MAPS
+              FIND US ON MAPS <ArrowUpRight size={12} />
             </a>
           </div>
 
+          {/* روابط التصفح السريع */}
           <div className="space-y-6">
-            <h4 className="text-[10px] font-black uppercase tracking-[0.4em] text-red-300">Explore</h4>
-            <ul className="text-sm font-bold space-y-4 italic uppercase tracking-tighter">
-              <li><a href="#courses" className="hover:text-red-200 transition-colors">Language Tracks</a></li>
-              <li><a href="#register" className="hover:text-red-200 transition-colors">Enroll Now</a></li>
+            <h4 className="text-[10px] font-black uppercase tracking-[0.4em] text-red-300/50">Explore</h4>
+            <ul className="text-sm font-black space-y-4 italic uppercase tracking-tighter">
+              <li>
+                <Link href="/#courses" className="hover:text-red-200 hover:pl-2 transition-all">
+                  Language Tracks
+                </Link>
+              </li>
+              <li>
+                <Link href="/#register" className="hover:text-red-200 hover:pl-2 transition-all">
+                  Enroll Now
+                </Link>
+              </li>
+              <li>
+                <Link href="/#gallery" className="hover:text-red-200 hover:pl-2 transition-all">
+                  Elite Gallery
+                </Link>
+              </li>
             </ul>
           </div>
         </div>
 
-        {/* 3. الحقوق */}
+        {/* 3. حقوق الملكية */}
         <div className="text-center pt-4">
-           <p className="text-red-300/40 text-[9px] font-black uppercase tracking-[0.6em]">
+           <p className="text-red-300/20 text-[9px] font-black uppercase tracking-[0.6em]">
              © 2026 IPFC GAFSA | PRESTIGE EDUCATION EXCELLENCE
            </p>
         </div>
