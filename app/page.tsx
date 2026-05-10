@@ -35,7 +35,7 @@ export default function Home() {
   return (
     <main className="bg-white antialiased selection:bg-[#580303] selection:text-white overflow-x-hidden"> 
       
-      {/* 1. DYNAMIC HERO SECTION - Optimized for Mobile & PC */}
+      {/* 1. DYNAMIC HERO SECTION */}
       <section 
         className="relative min-h-[85vh] md:min-h-screen flex items-center justify-center overflow-hidden transition-all duration-[3000ms] ease-in-out" 
         style={{ 
@@ -48,7 +48,7 @@ export default function Home() {
             key={floatingWords[activeWord]}
             initial={{ opacity: 0, scale: 0.7, y: 20 }}
             animate={{ opacity: 0.05, scale: 1.1, y: 0 }}
-            exit={{ opacity: 0, scale: 1.3 }}
+            exit={{ opacity: 0, scale: 1.4 }}
             transition={{ duration: 3 }}
             className="absolute text-[25vw] md:text-[15vw] font-[1000] text-white pointer-events-none select-none z-0 whitespace-nowrap"
           >
@@ -56,30 +56,30 @@ export default function Home() {
           </motion.span>
         </AnimatePresence>
 
-        <div className="relative z-10 max-w-7xl mx-auto text-center px-6 md:px-10 py-20 md:py-0">
+        <div className="relative z-10 max-w-7xl mx-auto text-center px-6 py-20 md:py-0">
           <motion.span 
             initial={{ y: 15, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             className="text-white/40 font-black tracking-[0.3em] md:tracking-[0.5em] text-[7px] md:text-[11px] uppercase mb-6 md:mb-10 block italic"
           >
-            IPFC Gafsa — Elite International Training Center
+            IPFC Gafsa Premium Expertise
           </motion.span>
 
-          <h1 className="text-[40px] sm:text-6xl md:text-[110px] font-[1000] text-white mb-10 md:mb-14 leading-[1] md:leading-[0.82] tracking-tighter uppercase">
+          <h1 className="text-[40px] sm:text-6xl md:text-[110px] font-[1000] text-white mb-8 md:mb-12 leading-[1.1] md:leading-[0.82] tracking-tighter uppercase">
             Your Future <br className="hidden md:block" /> Begins 
             <motion.span 
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.5 }}
-              className="text-[#a81a1a] italic block mt-3 md:mt-4"
+              className="text-[#a81a1a] italic block mt-2 md:mt-4"
             >
               Globally
             </motion.span>
           </h1>
 
-          <div className="flex flex-col md:flex-row justify-center items-center gap-6">
+          <div className="flex justify-center items-center">
              <motion.a 
-               whileHover={{ scale: 1.05, backgroundColor: "#fff", color: "#580303" }}
+               whileHover={{ scale: 1.05 }}
                whileTap={{ scale: 0.95 }}
                href="#register" 
                className="w-full md:w-auto bg-[#580303] text-white px-10 md:px-14 py-4 md:py-5 rounded-xl md:rounded-2xl font-black text-sm md:text-lg shadow-2xl transition-all uppercase tracking-widest"
@@ -89,26 +89,27 @@ export default function Home() {
           </div>
         </div>
 
-        {/* Floating Stats - Now visible but smaller on mobile */}
-        <div className="absolute bottom-10 md:right-10 md:top-1/2 md:-translate-y-1/2 flex flex-row md:flex-col gap-4 z-20 px-6 w-full md:w-auto justify-center">
+        {/* Floating Stats - Visible on PC, adjusted for clarity */}
+        <div className="absolute right-10 top-1/2 -translate-y-1/2 hidden xl:flex flex-col gap-5 z-20">
           {[
             { label: "Levels", val: "A1 → C2" },
-            { label: "Accredited", val: "Official" }
+            { label: "Accredited", val: "13+" },
+            { label: "Official", val: "100%" }
           ].map((stat, i) => (
-            <motion.div key={i} className="bg-white/5 border border-white/10 backdrop-blur-md p-3 md:p-5 rounded-2xl md:rounded-[2rem] text-center flex-1 md:w-32">
-              <p className="text-white font-black text-sm md:text-xl">{stat.val}</p>
-              <p className="text-white/30 text-[6px] md:text-[7px] uppercase tracking-widest mt-1">{stat.label}</p>
+            <motion.div key={i} className="bg-white/5 border border-white/10 backdrop-blur-md p-5 rounded-[2rem] text-center w-32">
+              <p className="text-white font-black text-xl">{stat.val}</p>
+              <p className="text-white/30 text-[7px] uppercase tracking-widest mt-1">{stat.label}</p>
             </motion.div>
           ))}
         </div>
       </section>
 
       {/* 2. ACCREDITATION BAR - Visual Bridge */}
-      <div className="-mt-10 md:-mt-20 relative z-30 transform -rotate-1 scale-[1.01] md:scale-[1.03]">
+      <div className="-mt-10 md:-mt-16 relative z-30 transform -rotate-1 scale-[1.01] md:scale-[1.02]">
         <AccreditationBar />
       </div>
 
-      {/* 3. CORE SECTIONS - Consistent Spacing */}
+      {/* 3. CORE CONTENT SECTIONS - Improved Spacing */}
       <div className="space-y-20 md:space-y-40">
         <div id="courses" className="pt-16 md:pt-32"><Languages /></div>
         <Methodology /> 
@@ -119,10 +120,10 @@ export default function Home() {
         <div id="register" className="pt-16 md:pt-32 px-4"><RegisterForm /></div>
       </div>
       
-      {/* 4. CALL TO ACTION - Royal Red Section */}
+      {/* 4. CALL TO ACTION */}
       <section className="w-full bg-[#580303] py-20 md:py-32 px-6 mt-24 relative overflow-hidden">
         <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between text-center md:text-left gap-12 relative z-10">
-          <div className="space-y-4 md:max-w-2xl">
+          <div className="space-y-4">
             <h2 className="text-white text-3xl md:text-7xl font-[1000] tracking-tighter italic uppercase leading-none">
               Exclusive <br className="hidden md:block" /> in Gafsa
             </h2>
@@ -130,13 +131,13 @@ export default function Home() {
               Elite Training • International Degrees • Global Success
             </p>
           </div>
-          <a href="#register" className="shrink-0 px-12 py-5 bg-white text-[#580303] rounded-2xl font-black text-xs md:text-sm uppercase tracking-widest shadow-2xl hover:scale-110 transition-transform">
+          <a href="#register" className="shrink-0 px-12 py-5 bg-white text-[#580303] rounded-2xl font-black text-xs md:text-sm uppercase tracking-widest shadow-2xl hover:scale-105 transition-transform">
             Start Journey
           </a>
         </div>
       </section>
 
-      {/* 5. CONTACT & HOURS - Hybrid Layout */}
+      {/* 5. CONTACT & HOURS - Pro Layout */}
       <section id="hours" className="py-20 md:py-40 bg-white">
         <div className="max-w-7xl mx-auto px-5 md:px-10">
           <div className="bg-white border border-slate-50 rounded-[40px] md:rounded-[80px] shadow-[0_50px_100px_-20px_rgba(0,0,0,0.08)] overflow-hidden flex flex-col lg:flex-row">
