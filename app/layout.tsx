@@ -5,15 +5,14 @@ import Footer from "./components/Footer";
 
 /**
  * IPFC Gafsa - Root Layout 2026 
- * تم ضبط الإعدادات لضمان الفخامة (Elite Look) وسرعة الأداء
+ * تم تحسين الإعدادات لضمان الفخامة وسرعة الأرشفة في محركات البحث
  */
 
-// إعدادات الـ Viewport لضمان تجربة مستخدم مثالية وسلسة على التلفون
 export const viewport: Viewport = {
   width: "device-width",
   initialScale: 1,
   maximumScale: 5,
-  themeColor: "#580303", // اللون الملكي للمركز يظهر في شريط المتصفح
+  themeColor: "#580303", // اللون الملكي لشريط المتصفح
 };
 
 export const metadata: Metadata = {
@@ -23,7 +22,15 @@ export const metadata: Metadata = {
     template: "%s | IPFC GAFSA"
   },
   description: "Master German and English in Gafsa. Your gateway to Ausbildung and international careers. Accredited certifications (ÖSD, IELTS, TOEIC).",
-  keywords: ["IPFC Gafsa", "German courses Gafsa", "Ausbildung Germany", "Language center Gafsa", "English courses Gafsa"],
+  keywords: [
+    "IPFC Gafsa", 
+    "German courses Gafsa", 
+    "Ausbildung Germany", 
+    "Language center Gafsa", 
+    "English courses Gafsa",
+    "مركز لغات قفصة",
+    "دراسة الألمانية في قفصة"
+  ],
   icons: {
     icon: [
       { url: "/logo.png" },
@@ -53,6 +60,10 @@ export const metadata: Metadata = {
     description: "Your gateway to Ausbildung and international careers in Gafsa.",
     images: ["/og-image.jpg"],
   },
+  robots: {
+    index: true,
+    follow: true,
+  }
 };
 
 export default function RootLayout({
@@ -62,17 +73,24 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" dir="ltr" className="scroll-smooth">
-      <body className="antialiased font-sans bg-[#FCFAF7] text-slate-900 selection:bg-[#580303] selection:text-white overflow-x-hidden">
+      <head>
+        {/* إضافة خطوط بريميوم إضافية إذا لزم الأمر */}
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+      </head>
+      <body className="antialiased font-sans bg-[#FCFAF7] text-slate-900 selection:bg-[#580303]/10 selection:text-[#580303] overflow-x-hidden">
         
-        {/* Header ثابت يسهل التنقل للطالب في أي وقت */}
+        {/* الـ Header ثابت ويدعم الـ Glassmorphism */}
         <Header />
 
-        {/* المساحة الرئيسية للمحتوى مع حماية من التداخل مع الـ Navbar */}
-        <main className="min-h-screen relative z-10">
-          {children}
+        {/* الحاوية الرئيسية مع خلفية ناعمة جداً */}
+        <main className="min-h-screen relative z-10 flex flex-col">
+          <div className="flex-grow">
+            {children}
+          </div>
         </main>
 
-        {/* Footer المركز الرسمي */}
+        {/* Footer المركز الرسمي الذي يعطي انطباع الاستمرارية */}
         <Footer />
 
       </body>

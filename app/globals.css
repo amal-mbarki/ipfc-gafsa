@@ -1,40 +1,44 @@
 @import "tailwindcss";
 
 @theme {
-  /* الألوان الرسمية للمركز */
+  /* الألوان الرسمية للمركز - IPFC Gafsa Signature */
   --color-royal-red: #580303;
   --color-prestige-gold: #D4AF37;
   --color-cream-bg: #FCFAF7;
 }
 
 :root {
-  --background: #FCFAF7; /* استعملنا لون الكريمي الفخم اللي خدمنا بيه الصفحات */
-  --foreground: #0f172a;
+  --background: #FCFAF7; 
+  --foreground: #020617; /* لون أغمق قليلاً لزيادة الفخامة والوضوح */
 }
 
+/* تحسين الخطوط والتجربة البصرية */
 body {
   color: var(--foreground);
   background: var(--background);
-  font-family: 'Inter', system-ui, sans-serif;
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
   overflow-x: hidden;
-  -webkit-font-smoothing: antialiased; /* تحسين وضوح الخطوط على شاشات الـ iPhone */
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-/* تصليح غطس المحتوى وتناسقه مع الـ Mobile والـ PC */
+/* ضبط المحتوى مع الـ Navbar */
 main {
-  /* استعملنا padding متجانس يخدم مع الـ Navbar الثابت */
-  padding-top: clamp(80px, 10vh, 120px); 
+  /* padding ديناميكي يضمن مسافة أمان تحت الـ Header */
+  padding-top: clamp(80px, 15vh, 160px); 
 }
 
 /* انسيابية الحركة */
 html {
   scroll-behavior: smooth;
+  /* منع الـ bounce الثقيل في الـ mobile */
+  overscroll-behavior-y: none;
 }
 
-/* تحسين الـ Scrollbar ليكون متناسق مع الـ "Elite Look" */
+/* تحسين الـ Scrollbar ليكون "Invisible Elite" */
 ::-webkit-scrollbar { 
-  width: 6px; 
+  width: 5px; 
 }
 
 ::-webkit-scrollbar-track { 
@@ -43,11 +47,27 @@ html {
 
 ::-webkit-scrollbar-thumb { 
   background: #580303; 
-  border-radius: 50px;
+  border-radius: 100px;
+  /* يظهر فقط عند التحريك */
+  border: 1px solid var(--color-cream-bg);
 }
 
-/* تحسين اختيار النصوص (Selection) بلون المركز */
+/* تحسين اختيار النصوص (Selection) لتكون متناغمة مع Branding المركز */
 ::selection {
-  background-color: rgba(88, 3, 3, 0.1);
+  background-color: rgba(88, 3, 3, 0.15);
   color: #580303;
+}
+
+/* منع الحواف الزرقاء المزعجة عند الضغط في الموبايل */
+* {
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* تحسين عرض الصور لتكون دائماً Premium */
+img {
+  font-style: italic;
+  shape-margin: 1rem;
+  max-width: 100%;
+  height: auto;
+  vertical-align: middle;
 }

@@ -27,37 +27,30 @@ export default function Header() {
   ];
 
   return (
-    <header className={`fixed top-0 w-full z-[100] transition-all duration-700 ${
-      scrolled ? 'bg-white/90 backdrop-blur-2xl shadow-lg py-2' : 'bg-white py-4 md:py-6'
+    <header className={`fixed top-0 w-full z-[100] transition-all duration-500 ${
+      scrolled ? 'bg-white/95 backdrop-blur-md shadow-md py-2' : 'bg-white py-3 md:py-6'
     }`}>
       <div className="max-w-[1440px] mx-auto px-4 md:px-8 flex justify-between items-center">
         
-        {/* 1. Logo Section - Interactive Rotation on Hover */}
+        {/* 1. Logo Section - Optimized for Mobile */}
         <Link href="/" className="flex items-center gap-2 md:gap-4 group cursor-pointer">
           <motion.div 
-            // هنا التعديل: يدور فقط عند وضع الفأرة أو اللمس
-            whileHover={{ 
-              rotate: 360, 
-              scale: 1.1 
-            }}
-            transition={{ 
-              duration: 0.8, 
-              ease: "easeInOut" 
-            }}
-            className="relative w-12 h-12 md:w-16 md:h-16"
+            whileHover={{ rotate: 360, scale: 1.05 }}
+            transition={{ duration: 0.8 }}
+            className="relative w-10 h-10 md:w-16 md:h-16"
           >
             <Image 
               src="/logo.png" 
               alt="IPFC Gafsa" 
               fill
-              sizes="(max-width: 768px) 48px, 64px"
+              sizes="(max-width: 768px) 40px, 64px"
               className="object-contain"
               priority 
             />
           </motion.div>
-          <div className="flex flex-col border-l-2 border-slate-100 pl-2 md:pl-4">
-            <span className="text-xl md:text-3xl font-[1000] text-[#580303] tracking-tighter leading-none italic uppercase">IPFC</span>
-            <span className="text-[7px] md:text-[9px] font-black text-slate-400 uppercase tracking-[0.2em] md:tracking-[0.4em] mt-1">Gafsa Elite</span>
+          <div className="flex flex-col border-l border-slate-100 pl-2 md:pl-4">
+            <span className="text-lg md:text-3xl font-[1000] text-[#580303] tracking-tighter leading-none italic uppercase">IPFC</span>
+            <span className="text-[6px] md:text-[9px] font-black text-slate-400 uppercase tracking-[0.2em] md:tracking-[0.4em] mt-0.5">Gafsa Elite</span>
           </div>
         </Link>
 
@@ -67,7 +60,7 @@ export default function Header() {
           
           <div className="relative" onMouseEnter={() => setIsAboutOpen(true)} onMouseLeave={() => setIsAboutOpen(false)}>
             <button className="nav-item flex items-center gap-2 outline-none uppercase italic">
-              About <ChevronDown size={12} className={`transition-transform duration-300 ${isAboutOpen ? 'rotate-180' : ''}`} />
+              About <ChevronDown className={`w-3 h-3 transition-transform duration-300 ${isAboutOpen ? 'rotate-180' : ''}`} />
             </button>
             <AnimatePresence>
               {isAboutOpen && (
@@ -85,7 +78,7 @@ export default function Header() {
 
           <div className="relative" onMouseEnter={() => setIsLevelsOpen(true)} onMouseLeave={() => setIsLevelsOpen(false)}>
             <button className="nav-item flex items-center gap-2 outline-none uppercase italic text-[#580303]">
-              Levels <ChevronDown size={12} className={`transition-transform duration-300 ${isLevelsOpen ? 'rotate-180' : ''}`} />
+              Levels <ChevronDown className={`w-3 h-3 transition-transform duration-300 ${isLevelsOpen ? 'rotate-180' : ''}`} />
             </button>
             <AnimatePresence>
               {isLevelsOpen && (
@@ -111,7 +104,7 @@ export default function Header() {
         <div className="flex items-center gap-3 md:gap-6">
           <div className="hidden xl:flex flex-col items-end gap-1 border-r border-slate-100 pr-6 text-[#580303]">
             <a href="tel:+21699885883" className="flex items-center gap-2 text-lg font-[1000] text-slate-900 tracking-tighter hover:text-[#580303] transition-colors leading-none italic">
-              <Phone size={14} className="text-[#580303]" />
+              <Phone className="w-3.5 h-3.5 text-[#580303]" />
               +216 99 885 883
             </a>
             <span className="text-[9px] font-black text-slate-400 uppercase tracking-widest">Admissions Open</span>
@@ -119,42 +112,41 @@ export default function Header() {
 
           <Link 
             href="/#register" 
-            className="hidden sm:block bg-[#580303] text-white px-5 md:px-8 py-3 md:py-4 rounded-xl md:rounded-2xl font-black text-[9px] md:text-[10px] uppercase tracking-[0.2em] hover:bg-black transition-all shadow-lg active:scale-95"
+            className="bg-[#580303] text-white px-4 md:px-8 py-2.5 md:py-4 rounded-lg md:rounded-2xl font-black text-[8px] md:text-[10px] uppercase tracking-[0.15em] md:tracking-[0.2em] hover:bg-black transition-all shadow-md active:scale-95"
           >
-            Register Now
+            Register
           </Link>
 
           <button 
-            className="lg:hidden p-2 text-[#580303]"
+            className="lg:hidden p-1.5 text-[#580303] transition-transform active:scale-90"
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
           >
-            {isMobileMenuOpen ? <X size={28} /> : <Menu size={28} />}
+            {isMobileMenuOpen ? <X className="w-7 h-7" /> : <Menu className="w-7 h-7" />}
           </button>
         </div>
       </div>
 
-      {/* 4. Mobile Menu Overlay */}
+      {/* 4. Mobile Menu Overlay - Clean & Prestigious */}
       <AnimatePresence>
         {isMobileMenuOpen && (
           <motion.div 
-            initial={{ x: '100%' }} animate={{ x: 0 }} exit={{ x: '100%' }}
-            transition={{ type: 'spring', damping: 25, stiffness: 200 }}
-            className="fixed inset-0 top-[70px] bg-white z-[90] lg:hidden p-8 flex flex-col gap-6"
+            initial={{ opacity: 0, y: -20 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -20 }}
+            className="fixed inset-x-0 top-[60px] md:top-[80px] bg-white z-[90] lg:hidden p-6 shadow-2xl border-t border-slate-50 flex flex-col gap-5 rounded-b-[30px]"
           >
-            <Link href="/" onClick={() => setIsMobileMenuOpen(false)} className="text-2xl font-black uppercase text-[#580303]">Home</Link>
-            <Link href="/#courses" onClick={() => setIsMobileMenuOpen(false)} className="text-2xl font-black uppercase text-[#580303]">Courses</Link>
-            <div className="h-[1px] bg-slate-100 w-full my-2" />
-            <a href="tel:+21699885883" className="flex items-center gap-4 text-xl font-black text-slate-900 italic">
-              <Phone size={20} className="text-[#580303]" />
-              +216 99 885 883
-            </a>
-            <Link 
-              href="/#register" 
-              onClick={() => setIsMobileMenuOpen(false)}
-              className="mt-4 bg-[#580303] text-white p-6 rounded-2xl text-center font-black uppercase tracking-widest shadow-xl"
-            >
-              Register Now
-            </Link>
+            <div className="grid grid-cols-1 gap-2">
+               <Link href="/" onClick={() => setIsMobileMenuOpen(false)} className="mob-nav-item">Home</Link>
+               <Link href="/#courses" onClick={() => setIsMobileMenuOpen(false)} className="mob-nav-item">Courses</Link>
+               <Link href="/vision" onClick={() => setIsMobileMenuOpen(false)} className="mob-nav-item text-slate-400">Our Vision</Link>
+            </div>
+            
+            <div className="h-[1px] bg-slate-50 w-full" />
+            
+            <div className="flex flex-col gap-4">
+              <a href="tel:+21699885883" className="flex items-center justify-center gap-3 py-4 text-slate-900 font-black italic border border-slate-100 rounded-2xl">
+                <Phone className="w-5 h-5 text-[#580303]" />
+                +216 99 885 883
+              </a>
+            </div>
           </motion.div>
         )}
       </AnimatePresence>
@@ -165,13 +157,16 @@ export default function Header() {
         }
         .nav-item::after {
           content: '';
-          @apply absolute bottom-0 left-0 w-0 h-[3px] bg-[#580303] transition-all duration-300 rounded-full;
+          @apply absolute bottom-0 left-0 w-0 h-[2px] bg-[#580303] transition-all duration-300 rounded-full;
         }
         .nav-item:hover::after {
           @apply w-full;
         }
         .drop-item {
           @apply text-[11px] font-black uppercase tracking-widest text-slate-400 p-4 hover:bg-[#580303]/5 hover:text-[#580303] rounded-[1.2rem] transition-all italic;
+        }
+        .mob-nav-item {
+          @apply text-xl font-black uppercase italic tracking-tight p-4 text-[#580303] hover:bg-slate-50 rounded-2xl transition-all;
         }
       `}</style>
     </header>
