@@ -5,14 +5,15 @@ import Footer from "./components/Footer";
 
 /**
  * IPFC Gafsa - Root Layout 2026 
+ * تم ضبط الإعدادات لضمان الفخامة (Elite Look) وسرعة الأداء
  */
 
-// إعدادات الـ Viewport لضمان تجربة مستخدم مثالية على التلفون
+// إعدادات الـ Viewport لضمان تجربة مستخدم مثالية وسلسة على التلفون
 export const viewport: Viewport = {
   width: "device-width",
   initialScale: 1,
   maximumScale: 5,
-  themeColor: "#580303", // لون المركز الرسمي يظهر في متصفحات الجوال
+  themeColor: "#580303", // اللون الملكي للمركز يظهر في شريط المتصفح
 };
 
 export const metadata: Metadata = {
@@ -21,7 +22,7 @@ export const metadata: Metadata = {
     default: "IPFC GAFSA | Elite International Training Center",
     template: "%s | IPFC GAFSA"
   },
-  description: "Master German and English in Gafsa. Your gateway to Ausbildung and international careers. Accredited certifications (ÖSD, IELTS).",
+  description: "Master German and English in Gafsa. Your gateway to Ausbildung and international careers. Accredited certifications (ÖSD, IELTS, TOEIC).",
   keywords: ["IPFC Gafsa", "German courses Gafsa", "Ausbildung Germany", "Language center Gafsa", "English courses Gafsa"],
   icons: {
     icon: [
@@ -61,17 +62,17 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" dir="ltr" className="scroll-smooth">
-      {/* استعملنا الـ Variable Fonts والـ Antialiasing لضمان فخامة الخطوط */}
       <body className="antialiased font-sans bg-[#FCFAF7] text-slate-900 selection:bg-[#580303] selection:text-white overflow-x-hidden">
         
-        {/* Header ثابت لضمان سهولة التنقل */}
+        {/* Header ثابت يسهل التنقل للطالب في أي وقت */}
         <Header />
 
-        {/* الـ main يأخذ الـ padding-top المناسب من ملف الـ CSS */}
+        {/* المساحة الرئيسية للمحتوى مع حماية من التداخل مع الـ Navbar */}
         <main className="min-h-screen relative z-10">
           {children}
         </main>
 
+        {/* Footer المركز الرسمي */}
         <Footer />
 
       </body>
